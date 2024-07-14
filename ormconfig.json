@@ -1,0 +1,24 @@
+{
+    "type": "postgres",
+    "host": "northwindtraders-dry-resonance-5255-db.flycast",
+    "port": 5432,
+    "username": "postgres",
+    "password": "2tNiqQap5xMlTqV",
+    "database": "northwindtraders_dry_resonance_5255",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "dist/entities/**/*.js"
+    ],
+    "migrations": [
+      "dist/migration/**/*.js"
+    ],
+    "subscribers": [
+      "dist/subscriber/**/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    }
+  }

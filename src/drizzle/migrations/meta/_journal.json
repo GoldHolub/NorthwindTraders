@@ -1,0 +1,76 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1719225198163,
+      "tag": "0000_handy_moondragon",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1719261094822,
+      "tag": "0001_nice_loa",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1719264197959,
+      "tag": "0002_old_radioactive_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1719268482204,
+      "tag": "0003_nebulous_miss_america",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1719389462077,
+      "tag": "0004_concerned_peter_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1719494733840,
+      "tag": "0005_blushing_mac_gargan",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1719520843599,
+      "tag": "0006_nasty_santa_claus",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1719520882289,
+      "tag": "0007_flowery_agent_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1719930906677,
+      "tag": "0008_right_ego",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1720761351703,
+      "tag": "0009_black_luckman",
+      "breakpoints": true
+    }
+  ]
+}

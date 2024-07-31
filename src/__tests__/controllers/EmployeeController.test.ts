@@ -54,7 +54,7 @@ describe('EmployeeController', () => {
 
     describe('getEmployeeById', () => {
         it('should return employee when employee exists', async () => {
-            const mockEmployee: EmployeeType[] = [{
+            const mockEmployee = [{
                 id: 1,
                 employeeID: 'E123',
                 lastName: 'Doe',
@@ -72,6 +72,8 @@ describe('EmployeeController', () => {
                 extension: '123',
                 notes: 'Notes here',
                 reportsTo: '2',
+                supervisorLastName: 'last',
+                supervisorFirstName: 'first'
             }];
             jest.spyOn(EmployeeService.prototype, 'getEmployeeById').mockResolvedValue(mockEmployee);
 
@@ -94,6 +96,8 @@ describe('EmployeeController', () => {
                 extension: '123',
                 notes: 'Notes here',
                 reportsTo: '2',
+                supervisorFirstName: "first",
+                supervisorLastName: "last",
             }];
             expect(response.status).toBe(200);
             expect(response.body).toEqual(expectedResult);

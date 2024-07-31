@@ -12,6 +12,7 @@ import connectPgSimple from 'connect-pg-simple';
 import dotenv from 'dotenv';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,7 +23,11 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 10 * 60 * 1000 } // 10 minutes max
+    cookie: {
+        maxAge: 10 * 60 * 1000, // 10 minutes max
+        secure: 'auto', //process.env.NODE_ENV === 'production',
+        sameSite: 'lax'
+    }
 }));
 const swaggerOptions = {
     swaggerDefinition: {
@@ -43,6 +48,19 @@ const swaggerOptions = {
 };
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(cors({
+    origin: (origin, callback) => {
+        // allow requests with no origin - like mobile apps, curl, etc.
+        if (!origin)
+            return callback(null, true);
+        // if (allowedOrigins.indexOf(origin) === -1) {
+        //   const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        //   return callback(new Error(msg), false);
+        // }
+        return callback(null, true);
+    },
+    credentials: true
+}));
 app.use(bodyParser.json());
 app.use('/suppliers', supplierRouter);
 app.use('/products', productRouter);

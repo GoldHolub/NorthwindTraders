@@ -26,6 +26,7 @@ describe('ProductService', () => {
                 productID: 1,
                 productName: 'Test Product',
                 supplierID: 1,
+                supplierName: 'SomeName',
                 categoryID: 1,
                 quantityPerUnit: '10 boxes',
                 unitPrice: '20.0', 

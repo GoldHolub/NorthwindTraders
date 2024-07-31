@@ -33,7 +33,9 @@ describe('EmployeeService', () => {
                     homePhone: '123-456-7890',
                     extension: '1234',
                     notes: 'Test notes',
-                    reportsTo: '2'
+                    reportsTo: '2',
+                    supervisorLastName: 'last',
+                    supervisorFirstName: 'first'
                 }];
             jest.spyOn(employeeRepository, 'findEmployeeByIdAndLog').mockResolvedValue(mockEmployee);
             const result = await employeeService.getEmployeeById('1', mockSession);

@@ -49,6 +49,7 @@ describe('ProductController', () => {
                     productID: 100,
                     productName: 'Test Product',
                     supplierID: 10,
+                    supplierName: 'SomeName',
                     categoryID: 20,
                     quantityPerUnit: '10 boxes',
                     unitPrice: '25.50',

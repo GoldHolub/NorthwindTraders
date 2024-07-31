@@ -1,5 +1,5 @@
 import { db } from "../drizzle/db.js";
-import { Product } from "../drizzle/schema.js";
+import { Product, Supplier } from "../drizzle/schema.js";
 import { eq, ilike, sql } from 'drizzle-orm';
 import { generateLogEntry } from "../middleware/LogsProcessor.js";
 import { ProductType } from "../models/Types.js";
@@ -9,7 +9,24 @@ export class ProductRepository {
     async findProductByIdAndLog(id: number, currentSession: SessionData) {
         try {
             const startTime = Date.now();
-            const productsQuery = db.select().from(Product).where(eq(Product.productID, id)).limit(1);
+            const productsQuery = db.select({
+                productID: Product.productID,
+                productName: Product.productName,
+                supplierID: Product.supplierID,
+                supplierName: Supplier.companyName,
+                categoryID: Product.categoryID,
+                quantityPerUnit: Product.quantityPerUnit,
+                unitPrice: Product.unitPrice,
+                unitsInStock: Product.unitsInStock,
+                unitsOnOrder: Product.unitsOnOrder,
+                reorderLevel: Product.reorderLevel,
+                discontinued: Product.discontinued
+            })
+                .from(Product)
+                .leftJoin(Supplier, eq(Product.supplierID, Supplier.supplierID))
+                .where(eq(Product.productID, id))
+                .limit(1);
+
             const product = await productsQuery;
             if (product.length === 0) {
                 throw new Error(`Product not found by id: ${id}`);

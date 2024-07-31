@@ -5,6 +5,7 @@ export class CustomerDTO {
     title: string;
     city: string;
     country: string;
+    phone: string;
 
     constructor(customer: any) {
         this.customerId = customer.customer_id;
@@ -13,5 +14,6 @@ export class CustomerDTO {
         this.title = customer.contact_title;
         this.city = customer.city;
         this.country = customer.country;
+        this.phone = customer.phone;
     }
 }
